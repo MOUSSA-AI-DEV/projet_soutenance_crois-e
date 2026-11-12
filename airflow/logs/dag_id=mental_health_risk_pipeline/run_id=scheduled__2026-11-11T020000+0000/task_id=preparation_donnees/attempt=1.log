@@ -1,0 +1,88 @@
+[2026-11-12T19:51:07.529+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-11-12T19:51:07.643+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: mental_health_risk_pipeline.preparation_donnees scheduled__2026-11-11T02:00:00+00:00 [queued]>
+[2026-11-12T19:51:07.673+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: mental_health_risk_pipeline.preparation_donnees scheduled__2026-11-11T02:00:00+00:00 [queued]>
+[2026-11-12T19:51:07.682+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2026-11-12T19:51:07.736+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): preparation_donnees> on 2026-11-11 02:00:00+00:00
+[2026-11-12T19:51:07.757+0000] {standard_task_runner.py:63} INFO - Started process 204 to run task
+[2026-11-12T19:51:07.793+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'mental_health_risk_pipeline', 'preparation_donnees', 'scheduled__2026-11-11T02:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/risk_prediction_dag.py', '--cfg-path', '/tmp/tmp1exq3st6']
+[2026-11-12T19:51:07.814+0000] {standard_task_runner.py:91} INFO - Job 2: Subtask preparation_donnees
+[2026-11-12T19:51:08.097+0000] {task_command.py:426} INFO - Running <TaskInstance: mental_health_risk_pipeline.preparation_donnees scheduled__2026-11-11T02:00:00+00:00 [running]> on host f5404efe56d8
+[2026-11-12T19:51:08.863+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='mental_health_risk_pipeline' AIRFLOW_CTX_TASK_ID='preparation_donnees' AIRFLOW_CTX_EXECUTION_DATE='2026-11-11T02:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-11-11T02:00:00+00:00'
+[2026-11-12T19:51:08.865+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-11-12T19:51:16.121+0000] {logging_mixin.py:188} INFO - Dimensions : (2000, 17)
+[2026-11-12T19:51:16.128+0000] {logging_mixin.py:188} INFO - premiere lignes :
+[2026-11-12T19:51:16.299+0000] {logging_mixin.py:188} INFO -   Student_ID  Age  ... Previous_Mental_Health_History  Mental_Health_Risk
+0    STU0001   22  ...                             No                High
+1    STU0002   21  ...                             No              Medium
+2    STU0003   22  ...                             No              Medium
+3    STU0004   24  ...                            Yes                High
+4    STU0005   20  ...                             No              Medium
+
+[5 rows x 17 columns]
+[2026-11-12T19:51:16.304+0000] {logging_mixin.py:188} INFO - 
+dernieres lignes :
+[2026-11-12T19:51:16.377+0000] {logging_mixin.py:188} INFO -      Student_ID  Age  ... Previous_Mental_Health_History  Mental_Health_Risk
+1995    STU1996   23  ...                             No              Medium
+1996    STU1997   21  ...                             No                High
+1997    STU1998   19  ...                             No                High
+1998    STU1999   21  ...                             No                 Low
+1999    STU2000   19  ...                             No              Medium
+
+[5 rows x 17 columns]
+[2026-11-12T19:51:16.390+0000] {logging_mixin.py:188} INFO - 
+Informations generale :
+[2026-11-12T19:51:16.450+0000] {logging_mixin.py:188} INFO - <class 'pandas.core.frame.DataFrame'>
+RangeIndex: 2000 entries, 0 to 1999
+Data columns (total 17 columns):
+ #   Column                          Non-Null Count  Dtype  
+---  ------                          --------------  -----  
+ 0   Student_ID                      2000 non-null   object 
+ 1   Age                             2000 non-null   int64  
+ 2   Gender                          2000 non-null   object 
+ 3   Year_of_Study                   2000 non-null   int64  
+ 4   Sleep_Hours                     1938 non-null   float64
+ 5   Study_Hours_Per_Week            2000 non-null   float64
+ 6   GPA                             1962 non-null   float64
+ 7   Social_Media_Hours              1942 non-null   float64
+ 8   Screen_Time_Hours               2000 non-null   float64
+ 9   Physical_Activity               2000 non-null   object 
+ 10  Financial_Stress                1909 non-null   float64
+ 11  Family_Support                  1946 non-null   float64
+ 12  Attendance_Rate                 1953 non-null   float64
+ 13  Part_Time_Job                   2000 non-null   object 
+ 14  Diet_Quality                    1931 non-null   object 
+ 15  Previous_Mental_Health_History  2000 non-null   object 
+ 16  Mental_Health_Risk              2000 non-null   object 
+dtypes: float64(8), int64(2), object(7)
+memory usage: 265.8+ KB
+[2026-11-12T19:51:16.451+0000] {logging_mixin.py:188} INFO - 
+Noms des colonnes : ['Student_ID', 'Age', 'Gender', 'Year_of_Study', 'Sleep_Hours', 'Study_Hours_Per_Week', 'GPA', 'Social_Media_Hours', 'Screen_Time_Hours', 'Physical_Activity', 'Financial_Stress', 'Family_Support', 'Attendance_Rate', 'Part_Time_Job', 'Diet_Quality', 'Previous_Mental_Health_History', 'Mental_Health_Risk']
+[2026-11-12T19:51:16.488+0000] {logging_mixin.py:188} INFO - 
+nombre des ligne duplique : 0
+[2026-11-12T19:51:16.498+0000] {logging_mixin.py:188} INFO - nombre total de valeurs manquantes : 419
+[2026-11-12T19:51:16.500+0000] {logging_mixin.py:188} INFO - 
+valeurs manquantes par colonne :
+[2026-11-12T19:51:16.505+0000] {logging_mixin.py:188} INFO - Student_ID                         0
+Age                                0
+Gender                             0
+Year_of_Study                      0
+Sleep_Hours                       62
+Study_Hours_Per_Week               0
+GPA                               38
+Social_Media_Hours                58
+Screen_Time_Hours                  0
+Physical_Activity                  0
+Financial_Stress                  91
+Family_Support                    54
+Attendance_Rate                   47
+Part_Time_Job                      0
+Diet_Quality                      69
+Previous_Mental_Health_History     0
+Mental_Health_Risk                 0
+dtype: int64
+[2026-11-12T19:51:16.507+0000] {python.py:237} INFO - Done. Returned value was: None
+[2026-11-12T19:51:16.509+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-11-12T19:51:16.728+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=mental_health_risk_pipeline, task_id=preparation_donnees, run_id=scheduled__2026-11-11T02:00:00+00:00, execution_date=20261111T020000, start_date=20261112T195107, end_date=20261112T195116
+[2026-11-12T19:51:16.871+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2026-11-12T19:51:16.969+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-11-12T19:51:16.977+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
